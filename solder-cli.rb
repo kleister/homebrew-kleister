@@ -36,10 +36,10 @@ class SolderCli < Formula
       system "make", "deps"
       system "make", "build"
 
-      bin.install "#{solder_build_path}/bin/drone-cli" => "drone-cli"
+      bin.install "#{solder_build_path}/bin/solder-cli" => "solder-cli"
       Dir.chdir buildpath
     else 
-      bin.install "#{buildpath}/solder-cli-0.0.1-darwin-amd64" => "drone-cli"
+      bin.install "#{buildpath}/solder-cli-0.0.1-darwin-amd64" => "solder-cli"
     end
   ensure
     rm_rf solder_build_home if build.head?

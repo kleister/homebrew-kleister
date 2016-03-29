@@ -36,10 +36,10 @@ class SolderApi < Formula
       system "make", "deps"
       system "make", "build"
 
-      bin.install "#{solder_build_path}/bin/drone-api" => "drone-api"
+      bin.install "#{solder_build_path}/bin/solder-api" => "solder-api"
       Dir.chdir buildpath
     else 
-      bin.install "#{buildpath}/solder-api-0.0.1-darwin-amd64" => "drone-api"
+      bin.install "#{buildpath}/solder-api-0.0.1-darwin-amd64" => "solder-api"
     end
   ensure
     rm_rf solder_build_home if build.head?
