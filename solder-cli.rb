@@ -15,7 +15,7 @@ class SolderCli < Formula
   end
 
   test do
-    system "#{bin}/solder-cli", "version"
+    system "#{bin}/solder-cli", "--version"
   end
 
   def install

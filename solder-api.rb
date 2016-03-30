@@ -15,7 +15,7 @@ class SolderApi < Formula
   end
 
   test do
-    system "#{bin}/solder-api", "version"
+    system "#{bin}/solder-api", "--version"
   end
 
   def install
