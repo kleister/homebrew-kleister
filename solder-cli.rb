@@ -2,8 +2,8 @@ require "securerandom"
 
 class SolderCli < Formula
   homepage "https://github.com/solderapp/solder-cli"
-  url "http://dl.webhippie.de/solder-cli/v0.0.1/solder-cli-0.0.1-darwin-amd64"
-  sha256 `curl -s http://dl.webhippie.de/solder-cli/v0.0.1/solder-cli-0.0.1-darwin-amd64.sha256`.split(" ").first
+  url "http://dl.webhippie.de/solder-cli/latest/solder-cli-latest-darwin-amd64"
+  sha256 `curl -s http://dl.webhippie.de/solder-cli/latest/solder-cli-latest-darwin-amd64.sha256`.split(" ").first
 
   head do
     url "https://github.com/solderapp/solder-cli.git", :branch => "master"
@@ -39,7 +39,7 @@ class SolderCli < Formula
       bin.install "#{solder_build_path}/bin/solder-cli" => "solder-cli"
       Dir.chdir buildpath
     else 
-      bin.install "#{buildpath}/solder-cli-0.0.1-darwin-amd64" => "solder-cli"
+      bin.install "#{buildpath}/solder-cli-latest-darwin-amd64" => "solder-cli"
     end
   ensure
     rm_rf solder_build_home if build.head?
