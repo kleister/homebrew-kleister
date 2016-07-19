@@ -1,31 +1,31 @@
-# homebrew-solder
+# homebrew-kleister
 
-[![Join the chat at https://gitter.im/solderapp/solder-api](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/solderapp/solder-api)
+[![Join the chat at https://gitter.im/kleister/kleister](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kleister/kleister)
 
-Homebrew repository to install Solder on your Mac.
+Homebrew repository to install Kleister on your Mac.
 
 
 ## Prepare
 
 ```bash
-brew tap solderapp/solder
+brew tap kleister/kleister
 ```
 
 
 ## Install
 
-### solder-cli
+### kleister-cli
 
 ```bash
-brew install solder-cli
-solder-cli -h
+brew install kleister-cli
+kleister-cli -h
 ```
 
-### solder-api
+### kleister-api
 
 ```bash
-brew install solder-api
-solder-api -h
+brew install kleister-api
+kleister-api -h
 ```
 
 
