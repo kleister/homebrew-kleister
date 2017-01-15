@@ -1,28 +1,25 @@
 require "formula"
+require "language/go"
 
 class KleisterCli < Formula
+  desc "Manage mod packs for Minecraft - CLI"
   homepage "https://github.com/kleister/kleister-cli"
-  head "https://github.com/kleister/kleister-cli.git"
 
   stable do
-    url "http://dl.webhippie.de/kleister-cli/0.0.1/kleister-cli-0.0.1-darwin-amd64"
-    sha256 `curl -s http://dl.webhippie.de/kleister-cli/0.0.1/kleister-cli-0.0.1-darwin-amd64.sha256`.split(" ").first
-    version "0.0.1"
+    url "http://dl.webhippie.de/kleister-cli/0.1.0/kleister-cli-0.1.0-darwin-10.6-amd64"
+    sha256 `curl -Ls http://dl.webhippie.de/kleister-cli/0.1.0/kleister-cli-0.1.0-darwin-10.6-amd64.sha256`.split(" ").first
+    version "0.1.0"
   end
 
   devel do
-    url "http://dl.webhippie.de/kleister-cli/latest/kleister-cli-latest-darwin-amd64"
-    sha256 `curl -s http://dl.webhippie.de/kleister-cli/latest/kleister-cli-latest-darwin-amd64.sha256`.split(" ").first
-    version "0.0.1"
+    url "http://dl.webhippie.de/kleister-cli/master/kleister-cli-master-darwin-10.6-amd64"
+    sha256 `curl -Ls http://dl.webhippie.de/kleister-cli/master/kleister-cli-master-darwin-10.6-amd64.sha256`.split(" ").first
+    version "master"
   end
 
   head do
     url "https://github.com/kleister/kleister-cli.git", :branch => "master"
-
     depends_on "go" => :build
-    depends_on "mercurial" => :build
-    depends_on "bzr" => :build
-    depends_on "git" => :build
   end
 
   test do
@@ -30,20 +27,30 @@ class KleisterCli < Formula
   end
 
   def install
-    if build.head?
-      mkdir_p buildpath/File.join("src", "github.com", "kleister")
-      ln_s buildpath, buildpath/File.join("src", "github.com", "kleister", "kleister-cli")
-
-      ENV["GOVENDOREXPERIMENT"] = "1"
+    case
+    when build.head?
       ENV["GOPATH"] = buildpath
       ENV["GOHOME"] = buildpath
-      ENV["PATH"] += ":" + File.join(buildpath, "bin")
+      ENV["CGO_ENABLED"] = 0
+      ENV["TAGS"] = ""
 
-      system("make", "build")
+      ENV.append_path "PATH", buildpath/"bin"
 
-      bin.install "#{buildpath}/bin/kleister-cli" => "kleister-cli"
+      currentpath = buildpath/"src/github.com/kleister/kleister-cli"
+      currentpath.install Dir["*"]
+      Language::Go.stage_deps resources, buildpath/"src"
+
+      cd currentpath do
+        system "make", "test", "build"
+
+        bin.install "kleister-cli"
+        # bash_completion.install "contrib/bash-completion/_kleister-cli"
+        # zsh_completion.install "contrib/zsh-completion/_kleister-cli"
+      end
+    when build.devel?
+      bin.install "#{buildpath}/kleister-cli-master-darwin-10.6-amd64" => "kleister-cli"
     else
-      bin.install "#{buildpath}/kleister-cli-latest-darwin-amd64" => "kleister-cli"
+      bin.install "#{buildpath}/kleister-cli-0.1.0-darwin-10.6-amd64" => "kleister-cli"
     end
   end
 end
