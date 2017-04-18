@@ -2,18 +2,18 @@ require "formula"
 require "language/go"
 
 class KleisterApi < Formula
-  desc "Manage mod packs for Minecraft - API server"
+  desc "Manage mod packs for Minecraft - API"
   homepage "https://github.com/kleister/kleister-api"
 
   stable do
-    url "http://dl.webhippie.de/kleister-api/0.1.0/kleister-api-0.1.0-darwin-10.6-amd64"
-    sha256 `curl -Ls http://dl.webhippie.de/kleister-api/0.1.0/kleister-api-0.1.0-darwin-10.6-amd64.sha256`.split(" ").first
+    url "https://dl.webhippie.de/kleister/api/0.1.0/kleister-api-0.1.0-darwin-10.6-amd64"
+    sha256 `curl -Ls https://dl.webhippie.de/kleister/api/0.1.0/kleister-api-0.1.0-darwin-10.6-amd64.sha256`.split(" ").first
     version "0.1.0"
   end
 
   devel do
-    url "http://dl.webhippie.de/kleister-api/master/kleister-api-master-darwin-10.6-amd64"
-    sha256 `curl -Ls http://dl.webhippie.de/kleister-api/master/kleister-api-master-darwin-10.6-amd64.sha256`.split(" ").first
+    url "https://dl.webhippie.de/kleister/api/master/kleister-api-master-darwin-10.6-amd64"
+    sha256 `curl -Ls https://dl.webhippie.de/kleister/api/master/kleister-api-master-darwin-10.6-amd64.sha256`.split(" ").first
     version "master"
   end
 
@@ -34,7 +34,7 @@ class KleisterApi < Formula
       ENV["CGO_ENABLED"] = 1
       ENV["TAGS"] = ""
 
-      ENV.append_path "PATH", buildpath/"bin"
+      ENV.prepend_create_path "PATH", buildpath/"bin"
 
       currentpath = buildpath/"src/github.com/kleister/kleister-api"
       currentpath.install Dir["*"]
@@ -46,6 +46,7 @@ class KleisterApi < Formula
         bin.install "kleister-api"
         # bash_completion.install "contrib/bash-completion/_kleister-api"
         # zsh_completion.install "contrib/zsh-completion/_kleister-api"
+        prefix.install_metafiles
       end
     when build.devel?
       bin.install "#{buildpath}/kleister-api-master-darwin-10.6-amd64" => "kleister-api"
