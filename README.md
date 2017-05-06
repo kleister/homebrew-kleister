@@ -29,6 +29,13 @@ brew install kleister-api
 kleister-api -h
 ```
 
+### kleister-ui
+
+```bash
+brew install kleister-ui
+kleister-ui -h
+```
+
 
 ## Contributing
 
