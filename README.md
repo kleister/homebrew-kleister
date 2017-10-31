@@ -1,5 +1,6 @@
 # homebrew-kleister
 
+[![Build Status](http://github.dronehippie.de/api/badges/kleister/homebrew-kleister/status.svg)](http://github.dronehippie.de/kleister/homebrew-kleister)
 [![Join the chat at https://gitter.im/kleister/kleister](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kleister/kleister)
 [![Stories in Ready](https://badge.waffle.io/kleister/kleister-api.svg?label=ready&title=Ready)](http://waffle.io/kleister/kleister-api)
 
