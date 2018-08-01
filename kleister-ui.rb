@@ -16,13 +16,21 @@ class KleisterUi < Formula
 
   stable do
     url "https://dl.webhippie.de/kleister/ui/0.1.0/kleister-ui-0.1.0-darwin-10.6-amd64"
-    sha256 open("https://dl.webhippie.de/kleister/ui/0.1.0/kleister-ui-0.1.0-darwin-10.6-amd64.sha256").read.split(" ").first
+    sha256 begin
+      open("https://dl.webhippie.de/kleister/ui/0.1.0/kleister-ui-0.1.0-darwin-10.6-amd64.sha256").read.split(" ").first
+    rescue
+      nil
+    end
     version "0.1.0"
   end
 
   devel do
     url "https://dl.webhippie.de/kleister/ui/master/kleister-ui-master-darwin-10.6-amd64"
-    sha256 open("https://dl.webhippie.de/kleister/ui/master/kleister-ui-master-darwin-10.6-amd64.sha256").read.split(" ").first
+    sha256 begin
+      open("https://dl.webhippie.de/kleister/ui/master/kleister-ui-master-darwin-10.6-amd64.sha256").read.split(" ").first
+    rescue
+      nil
+    end
     version "master"
   end
 
