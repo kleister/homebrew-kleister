@@ -7,7 +7,7 @@
 
 **This project is under heavy development, it's not in a working state yet!**
 
-Homebrew repository to install [Kleister](https://kleister.webhippie.de) on macOS.
+Homebrew repository to install [Kleister](https://kleister.tech) on macOS.
 
 
 ## Prepare
