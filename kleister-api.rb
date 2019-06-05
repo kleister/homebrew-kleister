@@ -13,9 +13,9 @@ class KleisterApi < Formula
   end
 
   stable do
-    url "https://dl.webhippie.de/kleister/api/0.1.0/kleister-api-0.1.0-darwin-10.6-amd64"
+    url "https://dl.kleister.tech/api/0.1.0/kleister-api-0.1.0-darwin-amd64"
     sha256 begin
-      open("https://dl.webhippie.de/kleister/api/0.1.0/kleister-api-0.1.0-darwin-10.6-amd64.sha256").read.split(" ").first
+      open("https://dl.kleister.tech/api/0.1.0/kleister-api-0.1.0-darwin-amd64.sha256").read.split(" ").first
     rescue
       nil
     end
@@ -23,9 +23,9 @@ class KleisterApi < Formula
   end
 
   devel do
-    url "https://dl.webhippie.de/kleister/api/master/kleister-api-master-darwin-10.6-amd64"
+    url "https://dl.kleister.tech/api/testing/kleister-api-testing-darwin-amd64"
     sha256 begin
-      open("https://dl.webhippie.de/kleister/api/master/kleister-api-master-darwin-10.6-amd64.sha256").read.split(" ").first
+      open("https://dl.kleister.tech/api/testing/kleister-api-testing-darwin-amd64.sha256").read.split(" ").first
     rescue
       nil
     end
@@ -44,24 +44,24 @@ class KleisterApi < Formula
       ENV["CGO_ENABLED"] = 1
       ENV["TAGS"] = ""
 
-      ENV.prepend_create_path "PATH", buildpath/"bin"
+      ENV.prepend_create_path "PATH", buildpath / "bin"
 
-      currentpath = buildpath/"src/github.com/kleister/kleister-api"
+      currentpath = buildpath / "kleister-api"
       currentpath.install Dir["*"]
-      Language::Go.stage_deps resources, buildpath/"src"
+      Language::Go.stage_deps resources, buildpath / "src"
 
       cd currentpath do
         system "make", "test", "build"
 
-        bin.install "kleister-api"
+        bin.install "bin/kleister-api"
         # bash_completion.install "contrib/bash-completion/_kleister-api"
         # zsh_completion.install "contrib/zsh-completion/_kleister-api"
         prefix.install_metafiles
       end
     when build.devel?
-      bin.install "#{buildpath}/kleister-api-master-darwin-10.6-amd64" => "kleister-api"
+      bin.install "#{buildpath}/kleister-api-testing-darwin-amd64" => "kleister-api"
     else
-      bin.install "#{buildpath}/kleister-api-0.1.0-darwin-10.6-amd64" => "kleister-api"
+      bin.install "#{buildpath}/kleister-api-0.1.0-darwin-amd64" => "kleister-api"
     end
 
     FileUtils.touch("kleister-api.conf")

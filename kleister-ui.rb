@@ -15,9 +15,9 @@ class KleisterUi < Formula
   end
 
   stable do
-    url "https://dl.webhippie.de/kleister/ui/0.1.0/kleister-ui-0.1.0-darwin-10.6-amd64"
+    url "https://dl.kleister.tech/ui/0.1.0/kleister-ui-0.1.0-darwin-amd64"
     sha256 begin
-      open("https://dl.webhippie.de/kleister/ui/0.1.0/kleister-ui-0.1.0-darwin-10.6-amd64.sha256").read.split(" ").first
+      open("https://dl.kleister.tech/ui/0.1.0/kleister-ui-0.1.0-darwin-amd64.sha256").read.split(" ").first
     rescue
       nil
     end
@@ -25,9 +25,9 @@ class KleisterUi < Formula
   end
 
   devel do
-    url "https://dl.webhippie.de/kleister/ui/master/kleister-ui-master-darwin-10.6-amd64"
+    url "https://dl.kleister.tech/ui/testing/kleister-ui-testing-darwin-amd64"
     sha256 begin
-      open("https://dl.webhippie.de/kleister/ui/master/kleister-ui-master-darwin-10.6-amd64.sha256").read.split(" ").first
+      open("https://dl.kleister.tech/ui/testing/kleister-ui-testing-darwin-amd64.sha256").read.split(" ").first
     rescue
       nil
     end
@@ -46,11 +46,11 @@ class KleisterUi < Formula
       ENV["CGO_ENABLED"] = 0
       ENV["TAGS"] = ""
 
-      ENV.prepend_create_path "PATH", buildpath/"bin"
+      ENV.prepend_create_path "PATH", buildpath / "bin"
 
-      currentpath = buildpath/"src/github.com/kleister/kleister-ui"
+      currentpath = buildpath / "kleister-ui"
       currentpath.install Dir["*"]
-      Language::Go.stage_deps resources, buildpath/"src"
+      Language::Go.stage_deps resources, buildpath / "src"
 
       %w[src/github.com/UnnoTed/fileb0x].each do |path|
         cd(path) { system "go", "install" }
@@ -62,15 +62,15 @@ class KleisterUi < Formula
 
         system "make", "generate", "test", "build"
 
-        bin.install "kleister-ui"
+        bin.install "bin/kleister-ui"
         # bash_completion.install "contrib/bash-completion/_kleister-ui"
         # zsh_completion.install "contrib/zsh-completion/_kleister-ui"
         prefix.install_metafiles
       end
     when build.devel?
-      bin.install "#{buildpath}/kleister-ui-master-darwin-10.6-amd64" => "kleister-ui"
+      bin.install "#{buildpath}/kleister-ui-testing-darwin-amd64" => "kleister-ui"
     else
-      bin.install "#{buildpath}/kleister-ui-0.1.0-darwin-10.6-amd64" => "kleister-ui"
+      bin.install "#{buildpath}/kleister-ui-0.1.0-darwin-amd64" => "kleister-ui"
     end
 
     FileUtils.touch("kleister-ui.conf")

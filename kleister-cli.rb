@@ -12,9 +12,9 @@ class KleisterCli < Formula
   end
 
   stable do
-    url "https://dl.webhippie.de/kleister/cli/0.1.0/kleister-cli-0.1.0-darwin-10.6-amd64"
+    url "https://dl.kleister.tech/cli/0.1.0/kleister-cli-0.1.0-darwin-amd64"
     sha256 begin
-      open("https://dl.webhippie.de/kleister/cli/0.1.0/kleister-cli-0.1.0-darwin-10.6-amd64.sha256").read.split(" ").first
+      open("https://dl.kleister.tech/cli/0.1.0/kleister-cli-0.1.0-darwin-amd64.sha256").read.split(" ").first
     rescue
       nil
     end
@@ -22,9 +22,9 @@ class KleisterCli < Formula
   end
 
   devel do
-    url "https://dl.webhippie.de/kleister/cli/master/kleister-cli-master-darwin-10.6-amd64"
+    url "https://dl.kleister.tech/cli/testing/kleister-cli-testing-darwin-amd64"
     sha256 begin
-      open("https://dl.webhippie.de/kleister/cli/master/kleister-cli-master-darwin-10.6-amd64.sha256").read.split(" ").first
+      open("https://dl.kleister.tech/cli/testing/kleister-cli-testing-darwin-amd64.sha256").read.split(" ").first
     rescue
       nil
     end
@@ -43,24 +43,24 @@ class KleisterCli < Formula
       ENV["CGO_ENABLED"] = 0
       ENV["TAGS"] = ""
 
-      ENV.prepend_create_path "PATH", buildpath/"bin"
+      ENV.prepend_create_path "PATH", buildpath / "bin"
 
-      currentpath = buildpath/"src/github.com/kleister/kleister-cli"
+      currentpath = buildpath / "kleister-cli"
       currentpath.install Dir["*"]
-      Language::Go.stage_deps resources, buildpath/"src"
+      Language::Go.stage_deps resources, buildpath / "src"
 
       cd currentpath do
         system "make", "test", "build"
 
-        bin.install "kleister-cli"
+        bin.install "bin/kleister-cli"
         # bash_completion.install "contrib/bash-completion/_kleister-cli"
         # zsh_completion.install "contrib/zsh-completion/_kleister-cli"
         prefix.install_metafiles
       end
     when build.devel?
-      bin.install "#{buildpath}/kleister-cli-master-darwin-10.6-amd64" => "kleister-cli"
+      bin.install "#{buildpath}/kleister-cli-testing-darwin-amd64" => "kleister-cli"
     else
-      bin.install "#{buildpath}/kleister-cli-0.1.0-darwin-10.6-amd64" => "kleister-cli"
+      bin.install "#{buildpath}/kleister-cli-0.1.0-darwin-amd64" => "kleister-cli"
     end
   end
 end
