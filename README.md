@@ -2,75 +2,65 @@
 
 [![Build Status](https://cloud.drone.io/api/badges/kleister/homebrew-kleister/status.svg)](https://cloud.drone.io/kleister/homebrew-kleister)
 [![Join the Matrix chat at https://matrix.to/#/#kleister:matrix.org](https://img.shields.io/badge/matrix-%23kleister%3Amatrix.org-7bc9a4.svg)](https://matrix.to/#/#kleister:matrix.org)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2f2715f6b21d4203843e63fac80a442a)](https://www.codacy.com/app/kleister/homebrew-kleister?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kleister/homebrew-kleister&amp;utm_campaign=Badge_Grade)
-
-**This project is under heavy development, it's not in a working state yet!**
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ba764ae23b89464c98160567bbfb04f8)](https://www.codacy.com/gh/kleister/homebrew-kleister/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kleister/homebrew-kleister&amp;utm_campaign=Badge_Grade)
 
 Homebrew repository to install [Kleister](https://kleister.tech) on macOS.
 
-
 ## Prepare
 
-```bash
+```console
 brew tap kleister/kleister
 ```
-
 
 ## Install
 
 ### [kleister-api](https://github.com/kleister/kleister-api)
 
-```bash
+```console
 brew install kleister-api
 kleister-api -h
 ```
 
 ### [kleister-ui](https://github.com/kleister/kleister-ui)
 
-```bash
+```console
 brew install kleister-ui
 kleister-ui -h
 ```
 
 ### [kleister-cli](https://github.com/kleister/kleister-cli)
 
-```bash
+```console
 brew install kleister-cli
 kleister-cli -h
 ```
 
-
 ## Development
 
-```bash
+```console
 bundle install
 bundle exec rake rubocop
 bundle exec rake spec
 ```
 
-
 ## Security
 
 If you find a security issue please contact kleister@webhippie.de first.
-
 
 ## Contributing
 
 Fork -> Patch -> Push -> Pull Request
 
-
 ## Authors
 
-* [Thomas Boerger](https://github.com/tboerger)
-
+-   [Thomas Boerger](https://github.com/tboerger)
 
 ## License
 
 Apache-2.0
 
-
 ## Copyright
 
-```
+```console
 Copyright (c) 2018 Thomas Boerger <thomas@webhippie.de>
 ```

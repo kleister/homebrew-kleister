@@ -1,0 +1,18 @@
+{
+    "extends": [
+        "config:base",
+        ":automergeMinor",
+        ":automergeDigest"
+    ],
+    "enabledManagers": [
+        "droneci"
+    ],
+    "droneci": {
+        "fileMatch": [
+            "(^|/).drone.star$"
+        ]
+    },
+    "labels": [
+        "renovate"
+    ]
+}
