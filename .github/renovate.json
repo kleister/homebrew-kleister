@@ -7,11 +7,10 @@
     ],
     "packageRules": [
         {
-            "description": "Semantic commits for major updates",
-            "groupName": "major updates",
+            "description": "Semantic commits for major versions",
+            "groupName": "major versions",
             "matchDatasources": [
                 "github-releases",
-                "ruby-version",
                 "rubygems"
             ],
             "matchUpdateTypes": [
@@ -22,11 +21,10 @@
             "automerge": true
         },
         {
-            "description": "Semantic commits for minor updates",
-            "groupName": "minor updates",
+            "description": "Semantic commits for minor versions",
+            "groupName": "minor versions",
             "matchDatasources": [
                 "github-releases",
-                "ruby-version",
                 "rubygems"
             ],
             "matchUpdateTypes": [
@@ -41,7 +39,6 @@
             "groupName": "patch updates",
             "matchDatasources": [
                 "github-releases",
-                "ruby-version",
                 "rubygems"
             ],
             "matchUpdateTypes": [
