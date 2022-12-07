@@ -12,6 +12,20 @@ brew tap kleister/kleister
 
 ## Install
 
+### [kleister-api](https://github.com/kleister/kleister-api)
+
+```console
+brew install kleister-api
+kleister-api -h
+```
+
+### [kleister-ui](https://github.com/kleister/kleister-ui)
+
+```console
+brew install kleister-ui
+kleister-ui -h
+```
+
 ### [kleister-cli](https://github.com/kleister/kleister-cli)
 
 ```console
@@ -29,7 +43,8 @@ bundle exec rake spec
 
 ## Security
 
-If you find a security issue please contact kleister@webhippie.de first.
+If you find a security issue please contact
+[kleister@webhippie.de](mailto:kleister@webhippie.de) first.
 
 ## Contributing
 
