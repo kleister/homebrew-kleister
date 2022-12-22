@@ -9,10 +9,6 @@
     {
       "description": "Semantic commits for major versions",
       "groupName": "major versions",
-      "matchDatasources": [
-        "github-releases",
-        "rubygems"
-      ],
       "matchUpdateTypes": [
         "major"
       ],
@@ -23,10 +19,6 @@
     {
       "description": "Semantic commits for minor versions",
       "groupName": "minor versions",
-      "matchDatasources": [
-        "github-releases",
-        "rubygems"
-      ],
       "matchUpdateTypes": [
         "minor"
       ],
@@ -37,10 +29,6 @@
     {
       "description": "Semantic commits for patch updates",
       "groupName": "patch updates",
-      "matchDatasources": [
-        "github-releases",
-        "rubygems"
-      ],
       "matchUpdateTypes": [
         "patch"
       ],
