@@ -22,15 +22,14 @@ jobs:
         id: ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1
           bundler-cache: true
 
-      - name: Run rubocop
-        id: rubocop
+      - name: Run lint
+        id: lint
         run: bundle exec rake rubocop
 
-      - name: Run rspec
-        id: rspec
+      - name: Run test
+        id: test
         run: bundle exec rake spec
 
 ...
