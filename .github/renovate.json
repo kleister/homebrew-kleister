@@ -1,15 +1,15 @@
 {
   "extends": [
-      "config:base",
-      ":semanticCommits",
-      ":semanticCommitType(deps)",
-      ":automergeMajor",
-      ":automergeMinor",
-      ":automergePatch",
-      ":prConcurrentLimitNone"
+    "config:base",
+    ":semanticCommits",
+    ":semanticCommitType(deps)",
+    ":automergeMajor",
+    ":automergeMinor",
+    ":automergePatch",
+    ":prConcurrentLimitNone"
   ],
   "packageRules": [],
   "labels": [
-      "renovate"
+    "renovate"
   ]
 }
