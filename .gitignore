@@ -1,3 +1,5 @@
 .direnv
+.devenv
+
 .yardoc
 .bundle
