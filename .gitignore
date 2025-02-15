@@ -1,5 +1,7 @@
-.direnv
-.devenv
+.direnv/
+.devenv/
 
-.yardoc
-.bundle
+.yardoc/
+.bundle/
+
+.pre-commit-config.yaml
