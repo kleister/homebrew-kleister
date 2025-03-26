@@ -1,7 +1,7 @@
 ---
 repository:
   name: homebrew-kleister
-  description: "Kleister: Homebrew"
+  description: Homebrew formulae for Kleister
   homepage: https://kleister.eu
   topics: kleister, minecraft, homebrew, brew, formula
 
