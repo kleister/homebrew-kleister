@@ -19,13 +19,6 @@ brew install kleister-api
 kleister-api -h
 ```
 
-### [kleister-ui](https://github.com/kleister/kleister-ui)
-
-```console
-brew install kleister-ui
-kleister-ui -h
-```
-
 ### [kleister-cli](https://github.com/kleister/kleister-cli)
 
 ```console
