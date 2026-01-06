@@ -66,12 +66,11 @@
                 languages = {
                   ruby = {
                     enable = true;
-                    package = pkgs.ruby_3_4;
+                    package = pkgs.ruby_4_0;
                   };
                 };
 
                 packages = with pkgs; [
-                  _1password-cli
                   nixfmt-rfc-style
                 ];
               };
