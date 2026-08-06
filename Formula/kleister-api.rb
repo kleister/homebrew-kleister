@@ -27,7 +27,8 @@ class KleisterApi < Formula
                        url.split("/").last.gsub(".tar.gz", "").gsub("v", "")
                      end
 
-    system "task", "fe:install", "fe:generate", "fe:build", "be:generate", "be:build"
+    system "task", "fe:install", "fe:generate", "fe:build"
+    system "task", "be:generate", "build:server"
     bin.install "bin/kleister-api"
 
     FileUtils.touch("kleister-api.conf")
